@@ -4,6 +4,17 @@ import signal
 import sys
 
 '''
+    chatserve <port#>: When the program is called with a port number it will create a socket and listen on 
+        the given port number for a connection from any host. It will only connect to one client at a time.
+        Once a connection is made the chatserve program and the client (chatclient) will alternate sending 
+        messages until the connection socket is closed by either chatserve or chatclient. When the connection
+        is closed chatserve will then continue to listen for futher connections.
+
+        When engaged in messages if '\quit' without the quotes is typed in chatserve will close the connection and continue to 
+        listen for further connections
+
+        When SIGINT is issued chatserve will close the connection and exit
+
     Sources used to generate code for 
     // The following provided code sample for accessing command line arguments and calling main() method
     https://www.tutorialspoint.com/python/python_command_line_arguments.htm
@@ -16,11 +27,6 @@ import sys
     
     // Referenced in the code as well, this solution made the socket available immediately after the program is closed
     http://stackoverflow.com/questions/27360218/how-to-close-socket-connection-on-ctrl-c-in-a-python-programm
-'''
-
-
-'''
-    The main control for the program
 '''
 def main(argv):
     serverSocket, serverHandle = startUp()
@@ -75,6 +81,7 @@ def startUp():
     signal.signal(signal.SIGINT, signal_handler)
 
     # hard coded server handle
+    # borrowing the server handle name from Mystery Science Theater 3000: The Return
     serverHandle = 'ServeO'
     return serverSocket, serverHandle
 

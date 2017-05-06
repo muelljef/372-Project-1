@@ -16,6 +16,14 @@ int sendMessage(char *handle, int sockfd);
 int receiveMessage(int sockfd);
 
 /*
+ * chatclient <hostname> <port#>: When chatclient is started with a hostname and port number
+ *      it will establish a connection and ask the user for a 10 character or less handle.
+ *      After the handle is given the user can then alternate sending messages to 
+ *      the chatserve process. chatclient must initiate the messaging.
+ *      
+ *      To quit type '\quit' without the quotes into the message prompt and the program will
+ *      close the connection and quit
+ * 
  * I have reused/altered code written for an OSU CS 344 Operating Systems assignment.
  * Essentially I have re-used code that is taught in that course for the use of sockets
  * and string manipulation. The course content covered all that was needed for this assignment
@@ -24,10 +32,6 @@ int receiveMessage(int sockfd);
  * which likely influenced some of my string/input code
  * https://www.tutorialspoint.com/cprogramming/
  * http://www.cplusplus.com/reference/clibrary/
- */
-
-/*
- * The main control for the program.
  */
 int main(int argc, char *argv[]) {
     int sockfd;
