@@ -1,0 +1,16 @@
+/******  For chatserve in python    ******/
+// for example with arguments
+https://www.tutorialspoint.com/python/python_command_line_arguments.htm
+// for example with registering sigint handler
+http://stackoverflow.com/questions/12371361/using-variables-in-signal-handler-require-global
+// socket programming
+http://www.binarytides.com/python-socket-programming-tutorial/
+// Link for solution to make socket available right away
+http://stackoverflow.com/questions/27360218/how-to-close-socket-connection-on-ctrl-c-in-a-python-programme
+
+/****** For chatclient in C         ******/
+// OSU Operating Systems course covers strings and socket API. Utilized code from last project from socekts API
+
+
+
+gcc -o chatclient main.c
